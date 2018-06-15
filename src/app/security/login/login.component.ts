@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppUser } from '../app-user';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AppLoggedUser } from '../logged-user';
 
 @Component({
   selector: 'ptc-login',
@@ -13,14 +14,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   user: AppUser = new AppUser();
   securityObject: AppUserAuth = null;
-  returnUrl: string;
+  loggedUser : any =[];
 
+  invalidLogin: boolean=false;
   constructor(private securityService: SecurityService,
-    private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
-    this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+    
   }
 
    login() {
@@ -28,15 +31,24 @@ export class LoginComponent implements OnInit {
     this.securityService.login(this.user)
       .subscribe(resp => {
       this.securityObject = resp;
-        if (this.returnUrl) {
-          this.router.navigateByUrl(this.returnUrl);
+      console.log(resp);
+        if (resp) {
+          let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+          this.router.navigate([returnUrl || '/']);
         }
-        console.log(resp)
+        else
+          this.invalidLogin=true;
       });
   }
   logout(){
     this.securityService.logout();
   }
-
-
+  getLogged(){
+    this.securityService.getUserLogged().subscribe((data: any
+    )=>
+    {
+      this.loggedUser = data;
+   console.log(this.loggedUser);
+    });
+}
 }
