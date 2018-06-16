@@ -24,6 +24,7 @@
                 </th>
                 <th>Nazwa Użytkownika
                   </th>
+                  <th></th>
     </tr>
   </thead>
   <tbody>
@@ -40,7 +41,7 @@
       <td>{{ v.user.name }}</td>
       <td>
 
-       <!-- <a [routerLink]="['/recipe/', v.id]">View</a>-->
+     <a [routerLink]="['/admin/recipe/', v.id]">View</a>
       </td>
     </tr>
   </tbody>

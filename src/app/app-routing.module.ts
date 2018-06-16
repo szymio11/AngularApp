@@ -17,6 +17,9 @@ const routes: Routes = [
    { 
     path: 'admin/recipe', component: ListRecipeComponent, canActivate: [AuthGuard,AdminGuard]
    },
+   { 
+    path: 'admin/recipe/:id', component: FormRecipeComponent, canActivate: [AuthGuard,AdminGuard]
+   },
     //{
     // path: 'recipe', component: RecipeComponent
    //},

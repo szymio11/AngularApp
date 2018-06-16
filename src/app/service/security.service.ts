@@ -1,12 +1,13 @@
 import { AppConfig } from './../app.config';
-import { AppLoggedUser } from './logged-user';
-import { AppUserAuth } from './app-user-auth';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {tap} from 'rxjs/operators';
-import { AppUser } from './app-user';
-import { AppUserRegister } from './register';
+import { tap } from 'rxjs/operators';
+import { AppUserAuth } from '../model/app-user-auth';
+import { AppLoggedUser } from '../model/logged-user';
+import { AppUser } from '../model/app-user';
+import { AppUserRegister } from '../model/register';
+
 
 
 const httpOptions ={

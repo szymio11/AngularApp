@@ -1,5 +1,5 @@
+import { SecurityService } from './service/security.service';
 import { AuthGuard } from './security/auth.guard';
-import { RecipeService } from './recipe/service/recipe.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -20,6 +20,7 @@ import { RegisterComponent } from './security/register/register.component';
 import { AppConfig } from './app.config';
 import { ListRecipeComponent } from './recipe/list-recipe/list-recipe.component';
 import { StarComponent } from './shared/star.component';
+import { RecipeService } from './service/recipe.service';
 
 @NgModule({
 
@@ -48,6 +49,7 @@ import { StarComponent } from './shared/star.component';
    
   ],
   providers: [
+    SecurityService,
     RecipeService,
     AuthGuard,
     AdminGuard,

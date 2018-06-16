@@ -1,7 +1,8 @@
-import { SecurityService } from './../security/security.service';
+
 import { Component, OnInit } from '@angular/core';
-import { AppLoggedUser } from '../security/logged-user';
+import { AppLoggedUser } from '../model/logged-user';
 import { AddRecipe } from './add-recipe';
+import { SecurityService } from '../service/security.service';
 
 @Component({
   selector: 'app-recipe',

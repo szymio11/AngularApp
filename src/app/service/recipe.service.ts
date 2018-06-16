@@ -1,9 +1,9 @@
+import { AppConfig } from './../app.config';
 import { tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AddRecipe } from '../add-recipe';
-import { AppConfig } from '../../app.config';
-import { RecipeInfo } from '../recipe';
+import { AddRecipe } from '../recipe/add-recipe';
+import { RecipeInfo, RecipeUpdate } from '../model/recipe';
 const httpOptions ={
   headers: new HttpHeaders({
    'Content-Type': 'application/json'
@@ -28,5 +28,15 @@ export class RecipeService {
   }
   getListOfRecipe() {
     return this.http.get<RecipeInfo>(this.config.apiUrl+"recipe");
+  }
+  getRecipeUpdate(recipeId) {
+    return this.http.get<RecipeUpdate>(this.config.apiUrl+"recipe" + '/' + recipeId+'/update')
+  }
+  updateRecipe(recipeId,entity: RecipeUpdate) {
+    return this.http.put(this.config.apiUrl + "recipe" + '/' + recipeId, entity)
+     
+  }
+  delete(recipeId){
+    return this.http.delete(this.config.apiUrl + "recipe" + '/' + recipeId)
   }
 }

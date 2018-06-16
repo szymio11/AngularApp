@@ -1,8 +1,8 @@
-import { SecurityService } from './../security.service';
-import { AppUserAuth } from './../app-user-auth';
+import { AppUserAuth } from '../../model/app-user-auth';
 import { Component, OnInit } from '@angular/core';
-import { AppUser } from '../app-user';
+import { AppUser } from '../../model/app-user';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SecurityService } from '../../service/security.service';
 
 
 @Component({

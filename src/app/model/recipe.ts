@@ -14,3 +14,11 @@ export class UserInfo{
     email:string="";
     name:string="";
 }
+
+export class RecipeUpdate{
+
+    email:string="";
+    components:string="";
+    preparationTime:Uint8Array;
+    difficulty:Uint8Array;
+}
