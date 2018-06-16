@@ -19,7 +19,6 @@ import { AdminGuard } from './security/admin-guard';
 import { RegisterComponent } from './security/register/register.component';
 import { AppConfig } from './app.config';
 import { ListRecipeComponent } from './recipe/list-recipe/list-recipe.component';
-import { StarRatingModule } from 'angular-star-rating';
 import { StarComponent } from './shared/star.component';
 
 @NgModule({
@@ -34,10 +33,7 @@ import { StarComponent } from './shared/star.component';
     BrowserAnimationsModule,
     MatButtonModule, MatCheckboxModule,MatRadioModule,
     FormsModule,
-    ReactiveFormsModule,
-    StarRatingModule
-    
-    
+    ReactiveFormsModule   
   ], 
    declarations: [
     AppComponent,

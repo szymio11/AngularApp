@@ -1,6 +1,5 @@
 import { RecipeService } from './../service/recipe.service';
 import { Component, OnInit } from '@angular/core';
-import { NeutronRatingModule } from 'neutron-star-rating';
 
 @Component({
   selector: 'app-list-recipe',
