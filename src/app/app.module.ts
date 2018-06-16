@@ -6,7 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './security/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpInterceptorModule } from './security/http-interceptor';
 import { RecipeComponent } from './recipe/recipe.component';
@@ -19,6 +19,7 @@ import { AdminGuard } from './security/admin-guard';
 import { RegisterComponent } from './security/register/register.component';
 
 
+
 @NgModule({
 
   imports: [
@@ -29,7 +30,9 @@ import { RegisterComponent } from './security/register/register.component';
     NgbModule.forRoot(),
     HttpInterceptorModule, 
     BrowserAnimationsModule,
-    MatButtonModule, MatCheckboxModule,MatRadioModule
+    MatButtonModule, MatCheckboxModule,MatRadioModule,
+    FormsModule,
+    ReactiveFormsModule
   ], 
    declarations: [
     AppComponent,

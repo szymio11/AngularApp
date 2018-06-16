@@ -1,3 +1,52 @@
-<p>
-  register works!
-</p>
+<div class="row">
+    <div  class="col-md-6 offset-md-3">
+        <h3  class="text-cente p-3">Rejestracja </h3>
+  <form [formGroup]="form"(ngSubmit)="register()">
+ <!--   <div class="alert alert-danger" *ngIf="form.errors"> 
+        <div *ngIf="name?.errors['required']">Nazwa Użytkownika jest wymagana</div>
+        <div *ngIf="name?.errors['maxlength']">Nazwa Użytkownika może zawierać maksymalnie 50</div>
+        <div *ngIf="email?.errors['required']">Email jest wymagana</div>
+        <div *ngIf="email?.errors['email']">Zły Email</div> 
+        <div *ngIf="password?.errors['required']">Hasło jest wymagana</div>
+    </div>-->
+    <div class="form-group">
+        <label for="name">Nazwa Użytkownika</label>
+        <input 
+            formControlName="name"
+            id="name" 
+            type="text" 
+            class="form-control">
+       <div class="alert alert-danger" *ngIf="name.touched&&name.invalid">      
+      <div *ngIf="name?.errors['required']">Nazwa Użytkownika jest wymagana</div>
+     <div *ngIf="name?.errors['maxlength']">Nazwa Użytkownika może zawierać maksymalnie 50</div>
+    </div>            
+  </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+            formControlName="email"
+            id="email" 
+            type="text" 
+            class="form-control">
+            <div class="alert alert-danger" *ngIf="email.touched&&email.invalid">      
+                <div *ngIf="email?.errors['required']">Email jest wymagana</div>
+               <div *ngIf="email?.errors['email']">Zły Email</div>
+              </div> 
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+            formControlName="password"
+            id="password" 
+            type="text" 
+            class="form-control"
+            type="password">
+            <div class="alert alert-danger" *ngIf="password.touched&&password.invalid">      
+                Hasło jest wymagana
+              </div> 
+    </div>
+    <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Zarejestruj</button>
+  </form>
+  </div>
+</div>

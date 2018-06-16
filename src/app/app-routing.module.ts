@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './security/login/login.component';
 import { FormRecipeComponent } from './recipe/form-recipe/form-recipe.component';
+import { RegisterComponent } from './security/register/register.component';
 const routes: Routes = [
   { 
     path: '', redirectTo: '/', pathMatch: 'full' },
@@ -15,9 +16,10 @@ const routes: Routes = [
    },
     {
      path: 'recipe', component: RecipeComponent
- //   canActivate:[AuthGuard],
-   // data: {role: "admin"}
-   }
+   },
+   {
+    path: 'register', component: RegisterComponent
+  }
 
 ];
 @NgModule({

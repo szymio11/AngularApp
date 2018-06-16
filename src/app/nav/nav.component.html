@@ -8,6 +8,7 @@
         <li class="nav-item active">
           <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
         </li>
+     
         <li class="nav-item">
           <a class="nav-link"   routerLink="/recipe/new"*ngIf="isLogged()&&isAdmin()" >AddRecipe</a>
         </li>
@@ -16,15 +17,18 @@
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </ul>
-      <ul class=" navbar-nav float-lg-right">
-        <li class="my-2 nav-item float-right">
+      <ul class=" navbar-nav float-lg-right mr-0">
+          <li class="my-2 nav-item">
+              <a class="nav-link disabled" routerLink="/register" *ngIf="!isLogged()">Zarejestruj <span class="sr-only">(current)</span></a>
+            </li>
+        <li class="my-2 nav-item">
           <a class="nav-link disabled" 
           routerLink="/login"
           *ngIf="!isLogged()"
-          >Login</a>
+          >Zaloguj</a>
           <a class="nav-link disabled pointer" *ngIf="isLogged()"
           (click)="logout()"> 
-          Logout</a>
+          Wyloguj</a>
         </li>
       </ul>
     </div>

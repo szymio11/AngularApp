@@ -5,6 +5,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {tap, map} from 'rxjs/operators';
 import { AppUser } from './app-user';
+import { AppUserRegister } from './register';
 
 const API_URL = "http://localhost:44304/api/user/";
 const httpOptions ={
@@ -54,6 +55,21 @@ export class SecurityService {
       }
     }
   ))
+}
+register(entity: AppUserRegister){
+return this.http.post(API_URL+"register",entity,httpOptions)
+.pipe(tap(
+resp=>{
+  console.log(resp)
+  if(resp){
+    return true;
+  }
+  else{
+    return false;
+  }
+  }
+
+))
 }
 
 getUserLogged() {
