@@ -1,0 +1,47 @@
+<h2>Lista Przepisów</h2>
+<!--<p *ngIf="">-->
+ <p>
+  <a [routerLink]="['/recipe/new']" class="btn btn-primary"> Nowy Przepis</a>
+</p>
+<div class="well">
+  <button class="btn btn-default">Reset</button>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+    
+      <th>Nazwa 
+        </th>
+        <th>Składniku
+          </th>
+          <th>Czas przygotowania
+            </th>
+            <th>Trudność przygotowania
+              </th>
+              <th>Ocena użytkowników
+                </th>
+              <th>Utworzone
+                </th>
+                <th>Nazwa Użytkownika
+                  </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let v of recipes$ | async">
+  
+      
+      <td>{{ v.name }}</td>
+      <td>{{ v.components }}</td>
+      <td>{{ v.preparationTime }}</td>
+      <td>{{ v.difficulty }}</td>
+      <td>{{ v.rating }}</td>
+   
+      <td>{{ v.created | date:'yyyy-MM-dd'}}</td>
+      <td>{{ v.user.name }}</td>
+      <td>
+
+       <!-- <a [routerLink]="['/recipe/', v.id]">View</a>-->
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,7 +1,7 @@
 import { SecurityService } from './../security/security.service';
 import { Component, OnInit } from '@angular/core';
 import { AppLoggedUser } from '../security/logged-user';
-import { AppRecipe } from './recipe';
+import { AddRecipe } from './add-recipe';
 
 @Component({
   selector: 'app-recipe',
@@ -11,7 +11,7 @@ import { AppRecipe } from './recipe';
 export class RecipeComponent implements OnInit {
   loggedUser: AppLoggedUser = null;
   constructor(private securityService: SecurityService) { }
- recipe: AppRecipe = null;
+ recipe: AddRecipe = null;
  
   AddRecipe(){
     

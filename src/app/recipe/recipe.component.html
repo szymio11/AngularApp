@@ -4,13 +4,7 @@
     <div  class="col-md-4 offset-md-4">
             <h3  class="text-cente p-3">Logowanie </h3>
              <form>
-            <div class="form-group">
-              <label>Nazwa Przepisu</label>
-                    <input id="name" name="name" 
-                    class="form-control" required
-                    [(ngModel)]="recipe.name"
-                    autofocus="autofocus" />
-            </div>
+          
             <div class="form-group">
               <label>Składniki</label>
                     <input id="components" name="components" 
@@ -29,7 +23,7 @@
                   <label>Czas Przygotowania</label>
                         <input id="preparationTime" name="preparationTime" 
                         class="form-control" required 
-                        [(ngModel)]="recipe.preparationTime"
+                      
                         type="textarea" />
                 </div>
                 <mat-radio-group>

@@ -1,13 +1,14 @@
+import { AppConfig } from './../app.config';
 import { AppLoggedUser } from './logged-user';
 import { AppUserAuth } from './app-user-auth';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {tap, map} from 'rxjs/operators';
+import {tap} from 'rxjs/operators';
 import { AppUser } from './app-user';
 import { AppUserRegister } from './register';
 
-const API_URL = "http://localhost:44304/api/user/";
+
 const httpOptions ={
   headers: new HttpHeaders({
    'Content-Type': 'application/json'
@@ -19,7 +20,7 @@ const httpOptions ={
 export class SecurityService {
  securityObject: AppUserAuth = new AppUserAuth();
  loggedUser: AppLoggedUser = new AppLoggedUser();
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private config: AppConfig) { }
 
   logout(): void{
     this.resetSecurityObject();
@@ -33,13 +34,15 @@ export class SecurityService {
     let isTokenExired = jwt.isTokenExpired(token);
     return !isTokenExired;
   }
+  
   resetSecurityObject(): void
   {
   localStorage.removeItem("bearerToken");
   }
   login(entity: AppUser){
     this.resetSecurityObject();
-    return this.http.post<AppUserAuth>(API_URL+"login",
+    
+    return this.http.post<AppUserAuth>(this.config.apiUrl+"user/login",
       entity,httpOptions)
       .pipe(tap(
       resp=>{
@@ -57,10 +60,9 @@ export class SecurityService {
   ))
 }
 register(entity: AppUserRegister){
-return this.http.post(API_URL+"register",entity,httpOptions)
+return this.http.post(this.config.apiUrl+"user/register", entity,httpOptions)
 .pipe(tap(
 resp=>{
-  console.log(resp)
   if(resp){
     return true;
   }
@@ -73,7 +75,7 @@ resp=>{
 }
 
 getUserLogged() {
-  return this.http.get<AppLoggedUser>(API_URL);
+  return this.http.get<AppLoggedUser>(this.config.apiUrl+"user");
 }
 get currentUser(){
   let token = localStorage.getItem("bearerToken");

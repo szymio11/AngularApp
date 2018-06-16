@@ -1,10 +1,9 @@
 import { SecurityService } from './../security.service';
 import { AppUserAuth } from './../app-user-auth';
 import { Component, OnInit } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppUser } from '../app-user';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppLoggedUser } from '../logged-user';
+
 
 @Component({
   selector: 'ptc-login',
@@ -27,7 +26,6 @@ export class LoginComponent implements OnInit {
   }
 
    login() {
-     console.log(this.user)
     this.securityService.login(this.user)
       .subscribe(resp => {
       this.securityObject = resp;

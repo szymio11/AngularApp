@@ -17,8 +17,10 @@ import {MatRadioModule} from '@angular/material/radio';
 import { NavComponent } from './nav/nav.component';
 import { AdminGuard } from './security/admin-guard';
 import { RegisterComponent } from './security/register/register.component';
-
-
+import { AppConfig } from './app.config';
+import { ListRecipeComponent } from './recipe/list-recipe/list-recipe.component';
+import { StarRatingModule } from 'angular-star-rating';
+import { StarComponent } from './shared/star.component';
 
 @NgModule({
 
@@ -32,7 +34,10 @@ import { RegisterComponent } from './security/register/register.component';
     BrowserAnimationsModule,
     MatButtonModule, MatCheckboxModule,MatRadioModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StarRatingModule
+    
+    
   ], 
    declarations: [
     AppComponent,
@@ -40,13 +45,17 @@ import { RegisterComponent } from './security/register/register.component';
     RecipeComponent,
     FormRecipeComponent,
     NavComponent,
-    RegisterComponent
+    RegisterComponent,
+    ListRecipeComponent,
+    StarComponent
+    
    
   ],
   providers: [
     RecipeService,
     AuthGuard,
-    AdminGuard
+    AdminGuard,
+    AppConfig
   ],
   bootstrap: [AppComponent]
 })

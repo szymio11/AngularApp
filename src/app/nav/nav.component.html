@@ -8,17 +8,19 @@
         <li class="nav-item active">
           <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
         </li>
-     
         <li class="nav-item">
-          <a class="nav-link"   routerLink="/recipe/new"*ngIf="isLogged()&&isAdmin()" >AddRecipe</a>
+          <a class="nav-link"   routerLink="admin/recipe"*ngIf="isLogged()&&isAdmin()" >Lista Przepisów</a>
         </li>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <li class="nav-item">
+            <a class="nav-link"   routerLink="admin/recipe/new"*ngIf="isLogged()&&isAdmin()" >Dodaj Przepis</a>
+          </li>
       </ul>
       <ul class=" navbar-nav float-lg-right mr-0">
-          <li class="my-2 nav-item">
+          <form class="form-inline my-2 mr-3 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form> 
+        <li class="my-2 nav-item">
               <a class="nav-link disabled" routerLink="/register" *ngIf="!isLogged()">Zarejestruj <span class="sr-only">(current)</span></a>
             </li>
         <li class="my-2 nav-item">
