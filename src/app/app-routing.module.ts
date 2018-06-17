@@ -8,6 +8,7 @@ import { LoginComponent } from './security/login/login.component';
 import { RegisterComponent } from './security/register/register.component';
 import { FormRecipeComponent } from './recipe/admin/form-recipe/form-recipe.component';
 import { ListRecipeComponent } from './recipe/admin/list-recipe/list-recipe.component';
+import { RecipeComponent } from './recipe/user/recipe/recipe.component';
 const routes: Routes = [
   { 
     path: '', redirectTo: '/', pathMatch: 'full' },
@@ -21,9 +22,9 @@ const routes: Routes = [
    { 
     path: 'admin/recipe/:id', component: FormRecipeComponent, canActivate: [AuthGuard,AdminGuard]
    },
-    //{
-    // path: 'recipe', component: RecipeComponent
-   //},
+  {
+     path: '', component: RecipeComponent
+   },
    {
     path: 'register', component: RegisterComponent
   }

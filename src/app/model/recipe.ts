@@ -3,7 +3,7 @@ export class RecipeInfo{
     name:string="";
     components:string="";
     preparationTime:string="";
-    difficulty:string="";
+    difficulty:number;
     created:string;
     user:UserInfo;
     rating: DoubleRange;

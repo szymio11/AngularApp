@@ -1,3 +1,21 @@
-<p>
-  recipe works!
-</p>
+
+
+<div class="row mt-2">
+  <div class="col-md-3">
+    <input #query
+    (keyup)='filter(query.value)'
+    class="form-control"
+    placeholder="Wyszukaj..."
+    type="text">
+  </div>
+</div>
+<hr>
+<div class="card-columns">
+    <div *ngFor="let r of filteredRecipes" class="card">
+        <div class="card-body" [routerLink]="['/recipe/',r.id]" >
+          <h5 class="card-title">{{r.name}} </h5>
+          <p class="card-text">{{r.components}} <p>
+          <p class="card-text"><small class="text-muted">Utworzono {{r.created | date}}</small></p>
+        </div>
+      </div>
+</div>
