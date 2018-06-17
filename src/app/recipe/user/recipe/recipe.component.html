@@ -12,10 +12,11 @@
 <hr>
 <div class="card-columns">
     <div *ngFor="let r of filteredRecipes" class="card">
-        <div class="card-body" [routerLink]="['/recipe/',r.id]" >
+        <div class="card-body"  >
           <h5 class="card-title">{{r.name}} </h5>
           <p class="card-text">{{r.components}} <p>
           <p class="card-text"><small class="text-muted">Utworzono {{r.created | date}}</small></p>
+          <button class="btn btn-light" [routerLink]="['/recipe/',r.id]" >Więcej</button>
         </div>
       </div>
 </div>

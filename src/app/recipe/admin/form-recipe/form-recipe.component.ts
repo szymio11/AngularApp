@@ -23,18 +23,9 @@ export class FormRecipeComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     
-    //this.form.setValue({name:'test',components:'test',preparationTimeInMinutes:20,difficulty:2});
-    this.id = this.route.snapshot.paramMap.get('id');
+     this.id = this.route.snapshot.paramMap.get('id');
     if(this.id) {
       this.recipeService.getRecipeUpdate(this.id).pipe(take(1)).subscribe(resp=> this.fillUpform(resp))
-      
-      
-      /*this.form.setValue({
-        name:this.recipeObject.name,
-        components:this.recipeObject.components,
-        preparationTimeInMinutes:this.recipeObject.preparationTimeInMinutes,
-        difficulty:this.recipeObject.difficulty
-      });*/
     }}
   form = new FormGroup({
     name: new FormControl('',[

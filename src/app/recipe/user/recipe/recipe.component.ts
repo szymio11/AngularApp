@@ -2,6 +2,7 @@ import { RecipeService } from './../../../service/recipe.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { RecipeInfo } from '../../../model/recipe';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-recipe',
@@ -14,7 +15,7 @@ export class RecipeComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   constructor(private recipeService: RecipeService) { 
   this.subscription = this.recipeService.getListOfRecipe()
-  .subscribe(recipes=>this.filteredRecipes = this.recipes = recipes)
+  .pipe(take(6)).subscribe(recipes=>this.filteredRecipes = this.recipes = recipes)
 }
   ngOnInit() {
   }

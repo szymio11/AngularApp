@@ -35,6 +35,9 @@ export class RecipeService {
   getRecipeUpdate(recipeId) {
     return this.http.get<RecipeUpdate>(this.config.apiUrl+"recipe" + '/' + recipeId+'/update')
   }
+  getRecipe(recipeId) {
+    return this.http.get<RecipeInfo>(this.config.apiUrl+"recipe" + '/' + recipeId)
+  }
   updateRecipe(recipeId,entity: AddRecipe) {
     console.log(entity)
  

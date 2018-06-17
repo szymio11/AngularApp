@@ -1,3 +1,14 @@
-<p>
-  form-rating works!
-</p>
+<div class="mt-1">
+<form [formGroup]="form" (ngSubmit)="saveRating()">
+<select class="form-control" id="value" 
+formControlName="value">
+<option value="" selected disabled hidden></option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+</select>
+<button type="submit" class="mt-2 btn btn-primary" >Dodaj Ocene</button>            
+</form>
+</div>

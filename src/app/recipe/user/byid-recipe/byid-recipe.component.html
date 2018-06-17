@@ -1,0 +1,28 @@
+
+<div class="row mt-3">
+  <div class="col-lg mr-auto">
+      <div class="card">
+          <div class="card-body">
+            
+            <h5 class="card-title">Przepis na  {{recipe.name}} </h5>
+            <h6>Składniki</h6>
+            <p class="card-text">{{recipe.components}} <p>
+            <h6>Czas Przygotowania</h6>
+              <p class="card-text">{{recipe.preparationTime}} <p>
+            <h6>Trudność przygotowania</h6>
+            <p class="card-text">{{recipe.difficulty}} <p>
+                <h6 class="card-title">Dodał: {{recipe.user.name}} </h6>  
+              <p class="card-text"><small class="text-muted">Utworzono {{recipe.created | date}}</small></p>
+          </div>
+      </div>
+    </div>
+  <div class="col-lg">
+      <div class="card">
+          <div class="card-body">
+              <h5 class="card-title">Ocena </h5>
+            <p class="card-text">{{recipe.rating}} <p>
+                <app-form-rating [id]="recipe.id"></app-form-rating>
+          </div>
+        </div>
+      </div>   
+</div>  

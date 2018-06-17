@@ -23,6 +23,7 @@ import { FormRecipeComponent } from './recipe/admin/form-recipe/form-recipe.comp
 import { ListRecipeComponent } from './recipe/admin/list-recipe/list-recipe.component';
 import { RecipeComponent } from './recipe/user/recipe/recipe.component';
 import { FormRatingComponent } from './rating/form-rating/form-rating.component';
+import { ByidRecipeComponent } from './recipe/user/byid-recipe/byid-recipe.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { FormRatingComponent } from './rating/form-rating/form-rating.component'
     ListRecipeComponent,
     StarComponent,
     RecipeComponent,
-    FormRatingComponent
+    FormRatingComponent,
+    ByidRecipeComponent
     
    
   ],
