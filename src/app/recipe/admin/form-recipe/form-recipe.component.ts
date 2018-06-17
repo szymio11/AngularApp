@@ -3,9 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
-import { RecipeService } from '../../service/recipe.service';
-import { AddRecipe } from '../add-recipe';
-import { RecipeUpdate } from '../../model/recipe';
+import { AddRecipe } from '../../add-recipe';
+import { RecipeService } from '../../../service/recipe.service';
+import { RecipeUpdate } from '../../../model/recipe';
+
 @Component({
   selector: 'app-form-recipe',
   templateUrl: './form-recipe.component.html',

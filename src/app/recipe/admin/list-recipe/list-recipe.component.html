@@ -1,0 +1,52 @@
+<h2>Lista Przepisów</h2>
+<!--<p *ngIf="">-->
+<p class="mt-4">
+  <input
+  #query
+  (keyup)="filter(query.value)"
+  type="text" class="form-control" placeholder="Wyszukaj...">
+</p>
+<data-table
+[items]="items"
+[itemCount]="itemCount"
+(reload)="reloadItems($event)"
+>
+<data-table-column
+[property]="'name'"
+[header]="'Nazwa'"
+[sortable]="true"
+[resizable]="true"
+>
+</data-table-column>
+<data-table-column
+[property]="'components'"
+[header]="'Składniki'"
+[sortable]="true"
+[resizable]="true"
+>
+</data-table-column>
+<data-table-column
+[property]="'difficulty'"
+[header]="'Trudność'"
+[sortable]="true"
+[resizable]="true"
+>
+</data-table-column>
+<data-table-column
+[property]="'created'"
+[header]="'Utworzone'"
+[sortable]="true"
+[resizable]="true"
+>
+<ng-template #dataTableCell let-item="item">
+  {{item.created | date:'yyyy-MM-dd'}}
+</ng-template>
+</data-table-column>
+<data-table-column
+[property]="'id'"
+>
+<ng-template #dataTableCell let-item="item">
+  <a class="btn btn-light" [routerLink]="['/admin/recipe/',item.id ]">Edytuj</a>
+</ng-template>
+</data-table-column>
+</data-table>  

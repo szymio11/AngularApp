@@ -9,8 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpInterceptorModule } from './security/http-interceptor';
-import { RecipeComponent } from './recipe/recipe.component';
-import { FormRecipeComponent } from './recipe/form-recipe/form-recipe.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatRadioModule} from '@angular/material/radio';
@@ -18,9 +16,14 @@ import { NavComponent } from './nav/nav.component';
 import { AdminGuard } from './security/admin-guard';
 import { RegisterComponent } from './security/register/register.component';
 import { AppConfig } from './app.config';
-import { ListRecipeComponent } from './recipe/list-recipe/list-recipe.component';
 import { StarComponent } from './shared/star.component';
 import { RecipeService } from './service/recipe.service';
+import { DataTableModule } from 'angular5-data-table';
+import { FormRecipeComponent } from './recipe/admin/form-recipe/form-recipe.component';
+import { ListRecipeComponent } from './recipe/admin/list-recipe/list-recipe.component';
+import { RecipeComponent } from './recipe/user/recipe/recipe.component';
+import { FormRatingComponent } from './rating/form-rating/form-rating.component';
+
 
 @NgModule({
 
@@ -34,17 +37,19 @@ import { RecipeService } from './service/recipe.service';
     BrowserAnimationsModule,
     MatButtonModule, MatCheckboxModule,MatRadioModule,
     FormsModule,
-    ReactiveFormsModule   
+    ReactiveFormsModule,
+    DataTableModule.forRoot()
   ], 
    declarations: [
     AppComponent,
     LoginComponent,
-    RecipeComponent,
     FormRecipeComponent,
     NavComponent,
     RegisterComponent,
     ListRecipeComponent,
-    StarComponent
+    StarComponent,
+    RecipeComponent,
+    FormRatingComponent
     
    
   ],
