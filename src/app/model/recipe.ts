@@ -3,7 +3,7 @@ export class RecipeInfo{
     name:string="";
     components:string="";
     preparationTime:string="";
-    difficulty:Uint8Array;
+    difficulty:string="";
     created:string;
     user:UserInfo;
     rating: DoubleRange;
@@ -17,8 +17,8 @@ export class UserInfo{
 
 export class RecipeUpdate{
 
-    email:string="";
+    name:string="";
     components:string="";
-    preparationTime:Uint8Array;
+    preparationTimeInMinutes:Uint8Array;
     difficulty:Uint8Array;
 }

@@ -3,8 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
-import { RecipeUpdate } from '../../model/recipe';
 import { RecipeService } from '../../service/recipe.service';
+import { AddRecipe } from '../add-recipe';
+import { RecipeUpdate } from '../../model/recipe';
 @Component({
   selector: 'app-form-recipe',
   templateUrl: './form-recipe.component.html',
@@ -12,14 +13,28 @@ import { RecipeService } from '../../service/recipe.service';
 })
 export class FormRecipeComponent implements OnInit {
   recipe ={};
+  recipeObject: AddRecipe = new AddRecipe();
+  
+ 
   id;
   constructor(private recipeService: RecipeService,
     private router: Router,
     private route: ActivatedRoute
-  ) { 
+  ) {
+    
+    //this.form.setValue({name:'test',components:'test',preparationTimeInMinutes:20,difficulty:2});
     this.id = this.route.snapshot.paramMap.get('id');
-    if(this.id) this.recipeService.getRecipeUpdate(this.id).pipe(take(1)).subscribe(r=>this.recipe = r)
-  }
+    if(this.id) {
+      this.recipeService.getRecipeUpdate(this.id).pipe(take(1)).subscribe(resp=> this.fillUpform(resp))
+      
+      
+      /*this.form.setValue({
+        name:this.recipeObject.name,
+        components:this.recipeObject.components,
+        preparationTimeInMinutes:this.recipeObject.preparationTimeInMinutes,
+        difficulty:this.recipeObject.difficulty
+      });*/
+    }}
   form = new FormGroup({
     name: new FormControl('',[
       Validators.required,Validators.maxLength(50)
@@ -32,14 +47,20 @@ export class FormRecipeComponent implements OnInit {
 
   });
   ngOnInit() {
+    console.log(this.recipeObject) 
   }
   get name(){
     return this.form.get('name');
   }
+fillUpform(entity: RecipeUpdate){
+  this.form.get('name').setValue(entity.name);
+  this.form.get('components').setValue(entity.components);
+  this.form.get('preparationTimeInMinutes').setValue(entity.preparationTimeInMinutes);
+  this.form.get('difficulty').setValue(entity.difficulty);
+}
+saveRecipe(){
 
-saveRecipe(recipe){
-
-  if(this.id) this.recipeService.updateRecipe(this.id,recipe).subscribe(resp=>{
+  if(this.id) this.recipeService.updateRecipe(this.id,this.form.value).subscribe(resp=>{
     console.log(resp);
   });
   else{

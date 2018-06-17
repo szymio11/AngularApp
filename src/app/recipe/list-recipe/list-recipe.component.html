@@ -1,7 +1,13 @@
 <h2>Lista Przepisów</h2>
 <!--<p *ngIf="">-->
  <p>
-  <a [routerLink]="['/recipe/new']" class="btn btn-primary"> Nowy Przepis</a>
+  <a [routerLink]="['admin/recipe/new']" class="btn btn-primary"> Nowy Przepis</a>
+</p>
+<p>
+  <input
+  #query
+  (keyup)="filter(query.value)"
+  type="text" class="form-control" placeholder="Wyszukaj...">
 </p>
 <div class="well">
   <button class="btn btn-default">Reset</button>
@@ -28,11 +34,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let v of recipes$ | async">
+    <tr *ngFor="let v of filteredRecipes">
   
       
       <td>{{ v.name }}</td>
-      <td>{{ v.components }}</td>
+     <td>{{ v.components }}</td>
       <td>{{ v.preparationTime }}</td>
       <td>{{ v.difficulty }}</td>
       <td>{{ v.rating }}</td>

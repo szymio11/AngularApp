@@ -4,10 +4,10 @@
     <div  class="col-md-4 offset-md-4">
         <h3  class="text-cente p-3">Dodanie przepisu </h3>
         <form [formGroup]="form" (ngSubmit)="saveRecipe()" >
-             <pre>{{recipe | json}}</pre>
+             <pre>{{form.value | json}}</pre>
                 <div class="form-group">
                 <label for="name">Nazwa Przepisu</label>
-                        <input [(ngModel)]="recipe.name"
+                        <input 
                                 formControlName="name"
                                 id="name" 
                                 type="text" 
@@ -19,14 +19,13 @@
                 </div> 
                 <div class="form-group">
                         <label>Składniki</label>
-                        <textarea formControlName="components" [(ngModel)]="recipe.components"
-                        id="components" 
+                        <textarea formControlName="components"                        id="components" 
                         type="text" 
                         class="form-control" rows="3"></textarea>
                       </div>
                 <div class="form-group">
                   <label>Czas Przygotowania(w minutach)</label>
-                        <input id="preparationTimeInMinutes" name="preparationTimeInMinutes" [(ngModel)]="recipe.preparationTime"
+                        <input id="preparationTimeInMinutes" name="preparationTimeInMinutes"
                         formControlName="preparationTimeInMinutes"
                         class="form-control"
                         type="textarea" />
@@ -35,7 +34,7 @@
                         <label for="difficulty">Ocena trudności</label>
                         <select class="form-control" id="difficulty" 
                         formControlName="difficulty">
-                        <option value="recipe.difficulty" selected disabled hidden>{{ recipe.difficulty }}</option>
+                        <option value="" selected disabled hidden></option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
