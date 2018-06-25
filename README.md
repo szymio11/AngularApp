@@ -1,27 +1,8 @@
-# Aplikacjakulinarna4
+WAŻNE!!
+Jeśli jest inny localhost niż http://localhost:44304 to trzeba zmienic na aktualny w src/app.config.ts
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Opis:
+Ogólnie jest podział na to co widzi użytkownik i admin, admin może dodawać edytować i usuwać przepisy a user tylko może dodawać ocenę i wyświetlać a dla nie zalogowanego usera może tylko wyświetlać przepisy(zapomniałem dać ngIfa czy jest ktoś zalogowany dlatego też będzie widział to gość) 
+Nie ma nigdzie zrobionych loaderów, dlatego czasami może się dłużej poładować bez informacji o tym, że się ładuje i zapomniałem wcześniej dorobić redirecta po rejestracji i np. po dodaniu oceny się nie odświerza średnia ocen ale tak to wszystko działa tylko zabrakło czasu na dopracowanie :)
